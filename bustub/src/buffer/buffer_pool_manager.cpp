@@ -145,7 +145,7 @@ Page *BufferPoolManager::NewPageImpl(page_id_t *page_id) {
   page->page_id_ = disk_manager_->AllocatePage();
   page->pin_count_ = 0;
   page->is_dirty_ = false;
-  page_table_[frame_id] = page;
+  page_table_[page->page_id_] = frame_id;
   return page;
 }
 
